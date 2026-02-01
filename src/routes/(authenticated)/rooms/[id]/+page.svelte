@@ -107,13 +107,26 @@
 				<Metronome bind:bpm bind:isPlaying />
 			</div>
 
-			<!-- WebRTC Audio Stream Placeholder -->
-			<div class="mt-6 p-4 bg-[#0A0A0F] rounded-lg border border-[#2A2A3E]">
-				<p class="text-sm text-[#8B8BA7] text-center">
-					실시간 오디오 스트리밍 기능은 준비 중입니다.
-					<br />
-					현재는 메트로놈 동기화만 지원됩니다.
-				</p>
+			<!-- WebRTC Audio Stream -->
+			<div class="mt-6">
+				<h3 class="text-sm font-semibold text-white mb-3">실시간 오디오 스트리밍</h3>
+				<div class="p-4 bg-[#0A0A0F] rounded-lg border border-[#2A2A3E]">
+					<p class="text-sm text-[#8B8BA7] text-center mb-4">
+						실시간 오디오 스트리밍 기능은 준비 중입니다.
+						<br />
+						현재는 메트로놈 동기화만 지원됩니다.
+					</p>
+					<div class="flex items-center justify-center gap-4">
+						<button
+							disabled
+							aria-label="마이크 켜기 (준비 중)"
+							class="px-4 py-2 bg-[#2A2A3E] text-[#4A4A5E] rounded-lg text-sm cursor-not-allowed"
+						>
+							마이크 켜기
+						</button>
+						<span class="text-xs text-[#4A4A5E]">준비 중</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	{:else}

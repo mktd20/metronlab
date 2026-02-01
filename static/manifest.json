@@ -11,7 +11,25 @@
 		{
 			"src": "/favicon.svg",
 			"sizes": "any",
-			"type": "image/svg+xml"
+			"type": "image/svg+xml",
+			"purpose": "any maskable"
+		}
+	],
+	"categories": ["music", "education", "productivity"],
+	"shortcuts": [
+		{
+			"name": "연습 시작",
+			"short_name": "연습",
+			"description": "새로운 연습 세션 시작",
+			"url": "/practice",
+			"icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+		},
+		{
+			"name": "대시보드",
+			"short_name": "대시보드",
+			"description": "연습 통계 확인",
+			"url": "/dashboard",
+			"icons": [{ "src": "/favicon.svg", "sizes": "any" }]
 		}
 	]
 }

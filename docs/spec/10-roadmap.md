@@ -43,7 +43,8 @@
 - [x] CSRF 보호 - 토큰 기반 검증 및 자동 헤더 추가
 - [x] Performance 최적화 - Vite 빌드 최적화, DB 쿼리 병렬화
 - [x] Accessibility 개선 (WCAG 2.1 AA) - aria-label, 키보드 네비게이션, 포커스 스타일, 스킵 링크
-- [ ] PWA 기능 강화 (Service Worker, 오프라인 지원)
+- [x] PWA 기능 강화 - Service Worker, 오프라인 지원, 푸시 알림 기본 구조
+- [x] Practice Room WebRTC 기본 구조 - WebRTCAudioManager 클래스 및 플레이스홀더 구현
 
 ## Non-Functional Requirements
 

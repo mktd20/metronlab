@@ -5,9 +5,11 @@
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import type { LayoutData } from './$types';
 	import { onMount } from 'svelte';
+	import { registerServiceWorker, onOnlineStatusChange } from '$lib/pwa';
 
 	let { data, children }: { data: LayoutData; children: any } = $props();
 	let sidebarOpen = $state(false);
+	let isOnline = $state(true);
 
 	onMount(() => {
 		// Skip to main content link functionality
@@ -21,6 +23,19 @@
 					main.scrollIntoView({ behavior: 'smooth' });
 				}
 			});
+		}
+
+		// Register service worker for PWA
+		if (typeof window !== 'undefined') {
+			registerServiceWorker();
+
+			// Monitor online/offline status
+			isOnline = navigator.onLine;
+			const cleanup = onOnlineStatusChange((online) => {
+				isOnline = online;
+			});
+
+			return cleanup;
 		}
 	});
 </script>
@@ -43,6 +58,14 @@
 		<Sidebar user={data.user} bind:open={sidebarOpen} />
 		<div class="flex-1 flex flex-col min-w-0">
 			<Navbar user={data.user} onToggleSidebar={() => (sidebarOpen = !sidebarOpen)} />
+			<!-- Offline indicator -->
+			{#if !isOnline}
+				<div class="bg-[#FDCB6E]/10 border-b border-[#FDCB6E]/20 px-6 py-2 text-center">
+					<p class="text-sm text-[#FDCB6E]">
+						오프라인 모드입니다. 일부 기능이 제한될 수 있습니다.
+					</p>
+				</div>
+			{/if}
 			<main id="main-content" tabindex="-1" class="flex-1 p-6 overflow-auto">
 				{@render children()}
 			</main>

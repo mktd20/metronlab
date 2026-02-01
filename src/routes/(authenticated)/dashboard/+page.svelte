@@ -1,9 +1,21 @@
 <script lang="ts">
-	import SummaryCard from '$lib/components/SummaryCard.svelte';
-	import TrendChart from '$lib/components/charts/TrendChart.svelte';
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
+	import TrendChart from '$lib/components/charts/TrendChart.svelte';
+	import SummaryCard from '$lib/components/SummaryCard.svelte';
+	import { requestNotificationPermission } from '$lib/pwa';
 
 	let { data }: { data: PageData } = $props();
+
+	onMount(async () => {
+		// Request notification permission for practice reminders
+		if (typeof window !== 'undefined') {
+			const permission = await requestNotificationPermission();
+			if (permission === 'granted') {
+				console.log('Notification permission granted');
+			}
+		}
+	});
 
 	function formatDuration(seconds: number): string {
 		const h = Math.floor(seconds / 3600);
@@ -23,20 +35,7 @@
 </svelte:head>
 
 <div class="space-y-6">
-	<!-- Quick Actions -->
-	<div class="flex items-center justify-between">
-		<h1 class="text-2xl font-bold text-white">대시보드</h1>
-		<a
-			href="/practice"
-			class="px-6 py-2.5 bg-[#6C5CE7] hover:bg-[#5A4BD6] text-white font-semibold rounded-xl transition flex items-center gap-2"
-		>
-			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-			</svg>
-			연습 시작
-		</a>
-	</div>
+	<h1 class="text-2xl font-bold text-white">대시보드</h1>
 
 	<!-- Summary Cards -->
 	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

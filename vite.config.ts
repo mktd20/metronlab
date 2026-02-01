@@ -18,5 +18,10 @@ export default defineConfig({
 	},
 	optimizeDeps: {
 		include: ['chart.js', 'openai']
+	},
+	server: {
+		fs: {
+			allow: ['..']
+		}
 	}
 });
