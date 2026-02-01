@@ -1,0 +1,17 @@
+{
+	"name": "MetronLab",
+	"short_name": "MetronLab",
+	"description": "AI 기반 연습 관리 플랫폼",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#0A0A0F",
+	"theme_color": "#6C5CE7",
+	"orientation": "portrait-primary",
+	"icons": [
+		{
+			"src": "/favicon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml"
+		}
+	]
+}

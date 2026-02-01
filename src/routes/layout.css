@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+:root {
+	--color-primary: #6C5CE7;
+	--color-primary-hover: #5A4BD6;
+	--color-secondary: #00B894;
+	--color-accent: #FD79A8;
+	--color-bg: #0A0A0F;
+	--color-surface: #1A1A2E;
+	--color-surface-hover: #222240;
+	--color-border: #2A2A3E;
+	--color-text: #FFFFFF;
+	--color-text-muted: #8B8BA7;
+	--color-text-dim: #4A4A5E;
+	--color-warning: #FDCB6E;
+	--color-error: #FF6B6B;
+	--color-success: #00B894;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-border);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-text-dim);
+}
+
+/* Accessibility: Screen reader only class */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+	position: static;
+	width: auto;
+	height: auto;
+	padding: inherit;
+	margin: inherit;
+	overflow: visible;
+	clip: auto;
+	white-space: normal;
+}
+
+/* Accessibility: Focus visible styles */
+*:focus-visible {
+	outline: 2px solid #6C5CE7;
+	outline-offset: 2px;
+}
